@@ -10,7 +10,7 @@ import { createNoise2D } from 'simplex-noise';
 
 //var createNoise2D = SimplexNoise.createNoise2D
 
-
+console.log("test")
 
 const side = new Image();
 side.src = '/src/assets/images/boxsides.png';
