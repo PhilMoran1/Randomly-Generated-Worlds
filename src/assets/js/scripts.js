@@ -1,15 +1,17 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
 
-import * as TWEEN from '@tweenjs/tween.js'
+// import * as TWEEN from '@tweenjs/tween.js'
 
 import SimplexNoise from 'simplex-noise';
 import { createNoise2D } from 'simplex-noise';
 
-import * as dat from 'dat.gui';
+// import * as dat from 'dat.gui';
+
+//var createNoise2D = SimplexNoise.createNoise2D
 
 
-var createNoise2D = SimplexNoise.createNoise2D
+
 const side = new Image();
 side.src = '/src/assets/images/boxsides.png';
 
@@ -129,7 +131,6 @@ light.shadow.bias = -0.005;
 // light.shadow.camera.far = 50;
 
 //scene.add(light);
-
 const camera = new THREE.PerspectiveCamera(
     45,
     window.innerWidth / innerHeight,
@@ -182,7 +183,7 @@ function createPlane(step, multiplier,amp,heights,cols,pos=[0,0,0]){
         let m = new THREE.MeshPhongMaterial({side:THREE.BackSide, flatShading: true,vertexColors: true});
         let g = new THREE.PlaneGeometry(step, step, 800,225);
         
-        
+        console.log(g)
         
         const count = g.attributes.position.count;
         g.setAttribute( 'color', new THREE.BufferAttribute( new Float32Array( count * 3), 3 ) );

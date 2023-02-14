@@ -1,0 +1,28 @@
+{
+  "name": "randomworldgenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philbabs/Randomly-Generated-Worlds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philbabs/Randomly-Generated-Worlds/issues"
+  },
+  "homepage": "https://github.com/philbabs/Randomly-Generated-Worlds#readme",
+  "dependencies": {
+    "@tweenjs/tween.js": "^18.6.4",
+    "dat.gui": "^0.7.9",
+    "simplex-noise": "^4.0.1",
+    "three": "^0.149.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
