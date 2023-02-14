@@ -16,21 +16,26 @@
 
 var createNoise2D = SimplexNoise.createNoise2D
 
-// echo "# Randomly-Generated-Worlds" >> README.md
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/philbabs/Randomly-Generated-Worlds.git
-// git push -u origin main
+
 
 // import * as dat from 'dat.gui';
 
-import side from "../images/boxsides.png";
-import leftarrow from "../images/arrow.png";
-import rightarrow from "../images/rightarrow.png";
-import New from "../images/new.png";
+// import side from "../images/boxsides.png";
+// import leftarrow from "../images/arrow.png";
+// import rightarrow from "../images/rightarrow.png";
+// import New from "../images/new.png";
 
+const side = new Image();
+side.src = '../images/boxsides.png';
+
+const leftarrow = new Image();
+leftarrow.src = '../images/arrow.png';
+
+const rightarrow = new Image();
+rightarrow.src = '../images/rightarrow.png';
+
+const New = new Image();
+New.src = '../images/new.png';
 
 console.log(side)
 
