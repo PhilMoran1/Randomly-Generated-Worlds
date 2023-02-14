@@ -26,16 +26,16 @@ var createNoise2D = SimplexNoise.createNoise2D
 // import New from "../images/new.png";
 
 const side = new Image();
-side.src = '../images/boxsides.png';
+side.src = './images/boxsides.png';
 
 const leftarrow = new Image();
-leftarrow.src = '../images/arrow.png';
+leftarrow.src = './images/arrow.png';
 
 const rightarrow = new Image();
-rightarrow.src = '../images/rightarrow.png';
+rightarrow.src = './images/rightarrow.png';
 
 const New = new Image();
-New.src = '../images/new.png';
+New.src = './images/new.png';
 
 console.log(side)
 
