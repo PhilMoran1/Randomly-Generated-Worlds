@@ -1,41 +1,36 @@
-// import * as THREE from 'three';
-// import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
-// import {ImprovedNoise} from 'three/examples/jsm/math/ImprovedNoise.js';
-// import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
-// import {OBJLoader} from "three/examples/jsm/loaders/OBJLoader.js"
-// import {MTLLoader} from "three/examples/jsm/loaders/MTLLoader.js"
+import * as THREE from 'three';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
 
-// import * as TWEEN from '@tweenjs/tween.js'
+import * as TWEEN from '@tweenjs/tween.js'
 
+import SimplexNoise from 'simplex-noise';
+import { createNoise2D } from 'simplex-noise';
 
-//import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-// import SimplexNoise from 'simplex-noise';
-// import { createNoise3D } from 'simplex-noise';
-// import { createNoise2D } from 'simplex-noise';
+import * as dat from 'dat.gui';
 
 
 var createNoise2D = SimplexNoise.createNoise2D
+const side = new Image();
+side.src = '/src/assets/images/boxsides.png';
+
+const leftarrow = new Image();
+leftarrow.src = '/src/assets/images/arrow.png';
+
+const rightarrow = new Image();
+rightarrow.src = '/src/assets/images/rightarrow.png';
+
+const New = new Image();
+New.src = '/src/assets//images/new.png';
 
 
 
-// import * as dat from 'dat.gui';
 
 // import side from "../images/boxsides.png";
 // import leftarrow from "../images/arrow.png";
 // import rightarrow from "../images/rightarrow.png";
 // import New from "../images/new.png";
 
-const side = new Image();
-side.src = './images/boxsides.png';
 
-const leftarrow = new Image();
-leftarrow.src = './images/arrow.png';
-
-const rightarrow = new Image();
-rightarrow.src = './images/rightarrow.png';
-
-const New = new Image();
-New.src = './images/new.png';
 
 console.log(side)
 
