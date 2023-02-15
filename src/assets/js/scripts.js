@@ -4,9 +4,9 @@ import { OrbitControls } from '../../../node_modules/three/examples/jsm/controls
 
 // import * as TWEEN from '@tweenjs/tween.js'
 
-import SimplexNoise from 'simplex-noise';
-import { createNoise2D } from 'simplex-noise';
-
+// import SimplexNoise from 'simplex-noise';
+// import { createNoise2D } from 'simplex-noise';
+import { createNoise2D } from '../../../node_modules/simplex-noise/dist/esm/simplex-noise.js'
 // import * as dat from 'dat.gui';
 
 //var createNoise2D = SimplexNoise.createNoise2D
