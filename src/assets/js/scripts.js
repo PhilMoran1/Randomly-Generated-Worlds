@@ -1,7 +1,10 @@
 //import * as THREE from 'three';
 // import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
-import { OrbitControls } from '../../../node_modules/three/examples/jsm/controls/OrbitControls.mjs';
+// import { OrbitControls } from '../../../node_modules/three/examples/jsm/controls/OrbitControls.js';
 // import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
+
+import '../../../node_modules/three/examples/jsm/controls/OrbitControls.js';
+
 
 // import * as TWEEN from '@tweenjs/tween.js'
 
