@@ -565,6 +565,7 @@ var _simplexNoise = require("simplex-noise");
 var _simplexNoiseDefault = parcelHelpers.interopDefault(_simplexNoise);
 // import * as dat from 'dat.gui';
 //var createNoise2D = SimplexNoise.createNoise2D
+// console.log("test")
 const side = new Image();
 side.src = "/src/assets/images/boxsides.png";
 const leftarrow = new Image();
