@@ -21,25 +21,25 @@ import * as dat from 'dat.gui';
 
 // console.log("test")
 
-const side = new Image();
-side.src = '/src/assets/images/boxsides.png';
+// const side = new Image();
+// side.src = '/src/assets/images/boxsides.png';
 
-const leftarrow = new Image();
-leftarrow.src = '/src/assets/images/arrow.png';
+// const leftarrow = new Image();
+// leftarrow.src = '/src/assets/images/arrow.png';
 
-const rightarrow = new Image();
-rightarrow.src = '/src/assets/images/rightarrow.png';
+// const rightarrow = new Image();
+// rightarrow.src = '/src/assets/images/rightarrow.png';
 
-const New = new Image();
-New.src = '/src/assets//images/new.png';
-
-
+// const New = new Image();
+// New.src = '/src/assets//images/new.png';
 
 
-// import side from "../images/boxsides.png";
-// import leftarrow from "../images/arrow.png";
-// import rightarrow from "../images/rightarrow.png";
-// import New from "../images/new.png";
+
+
+import side from "../images/boxsides.png";
+import leftarrow from "../images/arrow.png";
+import rightarrow from "../images/rightarrow.png";
+import New from "../images/new.png";
 
 
 
