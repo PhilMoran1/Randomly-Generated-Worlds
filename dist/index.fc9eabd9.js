@@ -558,8 +558,9 @@ function hmrAccept(bundle, id) {
 
 },{}],"NPDou":[function(require,module,exports) {
 //import * as THREE from 'three';
+// import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _orbitControlsJs = require("three/examples/jsm/controls/OrbitControls.js");
+var _orbitControlsJs = require("../../../node_modules/three/examples/jsm/controls/OrbitControls.js");
 // import * as TWEEN from '@tweenjs/tween.js'
 var _simplexNoise = require("simplex-noise");
 var _simplexNoiseDefault = parcelHelpers.interopDefault(_simplexNoise);
@@ -1273,7 +1274,7 @@ window.addEventListener("resize", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-},{"simplex-noise":"FTQ4k","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","three/examples/jsm/controls/OrbitControls.js":"7mqRv"}],"FTQ4k":[function(require,module,exports) {
+},{"simplex-noise":"FTQ4k","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","../../../node_modules/three/examples/jsm/controls/OrbitControls.js":"7mqRv"}],"FTQ4k":[function(require,module,exports) {
 /*
  * A fast javascript implementation of simplex noise by Jonas Wagner
 
