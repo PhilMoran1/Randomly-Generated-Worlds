@@ -572,19 +572,23 @@ var _simplexNoiseDefault = parcelHelpers.interopDefault(_simplexNoise);
 var _datGui = require("dat.gui");
 //var createNoise2D = SimplexNoise.createNoise2D
 // console.log("test")
-const side = new Image();
-side.src = "/src/assets/images/boxsides.png";
-const leftarrow = new Image();
-leftarrow.src = "/src/assets/images/arrow.png";
-const rightarrow = new Image();
-rightarrow.src = "/src/assets/images/rightarrow.png";
-const New = new Image();
-New.src = "/src/assets//images/new.png";
-// import side from "../images/boxsides.png";
-// import leftarrow from "../images/arrow.png";
-// import rightarrow from "../images/rightarrow.png";
-// import New from "../images/new.png";
-console.log(side);
+// const side = new Image();
+// side.src = '/src/assets/images/boxsides.png';
+// const leftarrow = new Image();
+// leftarrow.src = '/src/assets/images/arrow.png';
+// const rightarrow = new Image();
+// rightarrow.src = '/src/assets/images/rightarrow.png';
+// const New = new Image();
+// New.src = '/src/assets//images/new.png';
+var _boxsidesPng = require("../images/boxsides.png");
+var _boxsidesPngDefault = parcelHelpers.interopDefault(_boxsidesPng);
+var _arrowPng = require("../images/arrow.png");
+var _arrowPngDefault = parcelHelpers.interopDefault(_arrowPng);
+var _rightarrowPng = require("../images/rightarrow.png");
+var _rightarrowPngDefault = parcelHelpers.interopDefault(_rightarrowPng);
+var _newPng = require("../images/new.png");
+var _newPngDefault = parcelHelpers.interopDefault(_newPng);
+console.log((0, _boxsidesPngDefault.default));
 //const treeURL = new URL('../models/pinetree.gltf', import.meta.url);
 // const treeURL = new URL('../models/lowpolytree.obj', import.meta.url);
 // const treeMTL = new URL('../models/lowpolytree.mtl', import.meta.url);
@@ -1086,30 +1090,30 @@ const textureLoader = new _three.TextureLoader();
 const createMaterials = (dir)=>{
     return [
         new _three.MeshBasicMaterial({
-            map: textureLoader.load(side)
+            map: textureLoader.load((0, _boxsidesPngDefault.default))
         }),
         new _three.MeshBasicMaterial({
-            map: textureLoader.load(side)
+            map: textureLoader.load((0, _boxsidesPngDefault.default))
         }),
         new _three.MeshBasicMaterial({
-            map: textureLoader.load(side)
+            map: textureLoader.load((0, _boxsidesPngDefault.default))
         }),
         new _three.MeshBasicMaterial({
-            map: textureLoader.load(side)
+            map: textureLoader.load((0, _boxsidesPngDefault.default))
         }),
         new _three.MeshBasicMaterial({
             map: textureLoader.load(dir)
         }),
         new _three.MeshBasicMaterial({
-            map: textureLoader.load(side)
+            map: textureLoader.load((0, _boxsidesPngDefault.default))
         })
     ];
 };
 test();
 const wh = 0.4;
-const left = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials(leftarrow));
-const right = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials(rightarrow));
-const newbox = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials(New));
+const left = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials((0, _arrowPngDefault.default)));
+const right = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials((0, _rightarrowPngDefault.default)));
+const newbox = new _three.Mesh(new _three.BoxGeometry(wh, wh, wh), createMaterials((0, _newPngDefault.default)));
 scene.add(left);
 scene.add(right);
 scene.add(newbox);
@@ -1279,7 +1283,7 @@ window.addEventListener("resize", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","@tweenjs/tween.js":"7DfAI","simplex-noise":"FTQ4k","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","dat.gui":"k3xQk"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","@tweenjs/tween.js":"7DfAI","simplex-noise":"FTQ4k","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","dat.gui":"k3xQk","../images/boxsides.png":"getW2","../images/arrow.png":"jP6hk","../images/rightarrow.png":"ePOn5","../images/new.png":"3wrP3"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -34948,6 +34952,52 @@ var index = {
 };
 exports.default = index;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}]},["3WpYU","NPDou"], "NPDou", "parcelRequire41e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"getW2":[function(require,module,exports) {
+module.exports = require("98ab8ec626d00596").getBundleURL("47x78") + "boxsides.ccbda8bd.png" + "?" + Date.now();
+
+},{"98ab8ec626d00596":"jMDco"}],"jMDco":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"jP6hk":[function(require,module,exports) {
+module.exports = require("dfa27683d1d00966").getBundleURL("47x78") + "arrow.e39856bf.png" + "?" + Date.now();
+
+},{"dfa27683d1d00966":"jMDco"}],"ePOn5":[function(require,module,exports) {
+module.exports = require("fbd4f28277550f2c").getBundleURL("47x78") + "rightarrow.d6688843.png" + "?" + Date.now();
+
+},{"fbd4f28277550f2c":"jMDco"}],"3wrP3":[function(require,module,exports) {
+module.exports = require("82965e71b7541947").getBundleURL("47x78") + "new.c91f86bf.png" + "?" + Date.now();
+
+},{"82965e71b7541947":"jMDco"}]},["3WpYU","NPDou"], "NPDou", "parcelRequire41e5")
 
 //# sourceMappingURL=index.fc9eabd9.js.map
