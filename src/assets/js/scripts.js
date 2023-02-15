@@ -1,39 +1,11 @@
 import * as THREE from 'three';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-// import { OrbitControls } from 'three'
 
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
-// import { OrbitControls } from '../../../node_modules/three/examples/jsm/controls/OrbitControls.js';
-// import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
-
-// import '../../../node_modules/three/examples/jsm/controls/OrbitControls.js';
-
 
 import * as TWEEN from '@tweenjs/tween.js'
 
 import SimplexNoise from 'simplex-noise';
 import { createNoise2D } from 'simplex-noise';
-// import { createNoise2D } from '/node_modules/simplex-noise/dist/esm/simplex-noise.js'
-
-import * as dat from 'dat.gui';
-
-//var createNoise2D = SimplexNoise.createNoise2D
-
-// console.log("test")
-
-// const side = new Image();
-// side.src = '/src/assets/images/boxsides.png';
-
-// const leftarrow = new Image();
-// leftarrow.src = '/src/assets/images/arrow.png';
-
-// const rightarrow = new Image();
-// rightarrow.src = '/src/assets/images/rightarrow.png';
-
-// const New = new Image();
-// New.src = '/src/assets//images/new.png';
-
-
 
 
 import side from "../images/boxsides.png";
@@ -42,29 +14,15 @@ import rightarrow from "../images/rightarrow.png";
 import New from "../images/new.png";
 
 
-
-console.log(side)
-
-//const treeURL = new URL('../models/pinetree.gltf', import.meta.url);
-
-// const treeURL = new URL('../models/lowpolytree.obj', import.meta.url);
-// const treeMTL = new URL('../models/lowpolytree.mtl', import.meta.url);
-
-
-// import { CubeTextureLoader, InstancedMesh, Mesh, Plane, TextureLoader } from 'three';
-// import { WireframeGeometry } from 'three';
-
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
 renderer.gammaOutput = true;
 
 document.body.appendChild( renderer.domElement );
-
-// Load the GLTFLoader module
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x87ceeb); // sky blue
@@ -72,22 +30,11 @@ scene.background = new THREE.Color(0x87ceeb); // sky blue
 const ambientLight = new THREE.AmbientLight(0x333333, 5);
 scene.add(ambientLight);
 
-// const directionallight = new THREE.DirectionalLight(0xFFFFFF,0.5);
-// directionallight.position.set(-30,50,0)
-// scene.add(directionallight)
-// directionallight.castShadow = true;
-
-// const dLightHelper = new THREE.DirectionalLightHelper(directionallight,5)
-// scene.add(dLightHelper)
-
-// const dLightShadowHelper = new THREE.CameraHelper(directionallight.shadow.camera);
-// scene.add(dLightShadowHelper)
-
-//Create a DirectionalLight and turn on shadows for the light
+//Create a DirectionalLight
 const light = new THREE.DirectionalLight( 0xffffff, 1 );
 
 
-light.castShadow = true; // default false
+light.castShadow = true; 
 scene.add( light );
 
 //Set up shadow properties for the light
@@ -104,42 +51,7 @@ light.shadow.camera.left = +100
 light.shadow.camera.right = -100
 
 light.shadow.bias = -0.005;
-// const dLightHelper = new THREE.DirectionalLightHelper(light,5)
-// scene.add(dLightHelper)
 
-// const dLightShadowHelper = new THREE.CameraHelper(light.shadow.camera);
-// scene.add(dLightShadowHelper)
-
-
-// const spotLight = new THREE.SpotLight(0xFFFFFF);
-// scene.add(spotLight);
-// spotLight.position.set(-100,100,0);
-// spotLight.castShadow = true;
-// spotLight.angle = 0.1;
-
-// const sLightHelper = new THREE.SpotLightHelper(spotLight);
-// scene.add(sLightHelper);
-
-// const light = new THREE.PointLight(0xffffff, 2)
-// light.position.set(9, 5, 10)
-// light.rotation.x = 0.5
-// light.castShadow = true;
-
-// scene.add(light)
-
-
-
-// const light = new THREE.DirectionalLight(0xffffff, 1.7);
-// light.position.set(5, 5, 5);
-// light.castShadow = true;
-
-// Set up shadow properties for the light
-// light.shadow.mapSize.width = 50;
-// light.shadow.mapSize.height = 50;
-// light.shadow.camera.near = 0.5;
-// light.shadow.camera.far = 50;
-
-//scene.add(light);
 const camera = new THREE.PerspectiveCamera(
     45,
     window.innerWidth / innerHeight,
@@ -154,45 +66,18 @@ camera.position.set(-10,30,30);
 orbit.update()
 
 
-const gui = new dat.GUI();
-
-const options = {
-    cameraX: -30,
-    cameraY: 50,
-    cameraZ: 0,
-    cameraIntensity: 1
-}
-
-gui.add(options, 'cameraX',0,150);
-gui.add(options, 'cameraY',0,150);
-gui.add(options, 'cameraZ',0,150);
-gui.add(options, 'cameraIntensity',0.001,150);
-
-
-
 let currentObjects = [];
-
-
 let step = 100;
-
-
 let possibleTreeCoordinates = [];
+MnL() 
 
-
-//const plane = createPlane(step,1,1); // normal biome
-function test() {
-    MnL() 
-}
 
 
 function createPlane(step, multiplier,amp,heights,cols,pos=[0,0,0]){
 
-        
-
         let m = new THREE.MeshPhongMaterial({side:THREE.BackSide, flatShading: true,vertexColors: true});
         let g = new THREE.PlaneGeometry(step, step, 800,225);
         
-        console.log(g)
         
         const count = g.attributes.position.count;
         g.setAttribute( 'color', new THREE.BufferAttribute( new Float32Array( count * 3), 3 ) );
@@ -234,7 +119,6 @@ function createPlane(step, multiplier,amp,heights,cols,pos=[0,0,0]){
 
 
           }else if(g.attributes.position.getZ(i) < heights[2]){
-            //   color.setHSL(0.285, 1, 0.60 );
             const a = g.attributes.position;
             possibleTreeCoordinates.push([a.getX(i),a.getY(i),a.getZ(i)])
             color.setHSL(cols[2][0],cols[2][1],cols[2][2])
@@ -270,12 +154,7 @@ function createPlane(step, multiplier,amp,heights,cols,pos=[0,0,0]){
 }
 
 function setNoise(g, uvShift, multiplier, amplitude){
-    // const perlin = new ImprovedNoise();
-
-    let NOISE = createNoise2D()
-
-    // let newSeed = Date.now();
-    // NOISE.seed(newSeed);
+  let NOISE = createNoise2D()
   let pos = g.attributes.position;
   let uv = g.attributes.uv;
   let vec2 = new THREE.Vector2();
@@ -285,15 +164,12 @@ function setNoise(g, uvShift, multiplier, amplitude){
     let noise = 0;
     let q = 1;
     for(let i = 0; i < 4; i++){
-        // noise += perlin.noise(vec2.x / q, vec2.y / q, 0) * (q / amplitude);
         noise += NOISE(vec2.x / q, vec2.y / q, 0) * (q / amplitude);
       q += 5;
     }
     pos.setZ(i, noise);
   }
 }
-
-
 
 function createWater(rawcolor,y,pos=[0,0,0]) {
     const color = new THREE.Color();
@@ -314,20 +190,12 @@ function createWater(rawcolor,y,pos=[0,0,0]) {
 }
 
 
-
-
-
 function createTrees(rawcolor,pos=[0,0,0]){
 
     const color = new THREE.Color();
     color.setHSL(rawcolor[0],rawcolor[1],rawcolor[2]);
 
-    // add trees
     const treecount = 100000;
-    // 0x013220
-
-
-    //0x477D65
     const geometry = new THREE.ConeGeometry( 5, 20, 8 );
     const material = new THREE.MeshBasicMaterial( {color: color} );
     const cone = new THREE.InstancedMesh( geometry, material , treecount);
@@ -336,9 +204,6 @@ function createTrees(rawcolor,pos=[0,0,0]){
     cone.rotation.x = 0.5 * Math.PI;
     scene.add( cone );
 
-    console.log(possibleTreeCoordinates.length)
-    console.log(Math.random(0,possibleTreeCoordinates.length))
-    console.log(Math.floor(Math.random() * (possibleTreeCoordinates.length - 0) ) + 0)
     const dummy = new THREE.Object3D();
     for (let i = 0; i < treecount; i++) {
         let coordinate = possibleTreeCoordinates[Math.floor(Math.random() * (possibleTreeCoordinates.length - 0) ) + 0]
@@ -397,27 +262,26 @@ function createBubble(size,color) {
 
 function createClouds(rawcolor,cloudcount,pos=[0,0,0]) {
 
-const color = new THREE.Color();
-color.setHSL(rawcolor[0],rawcolor[1],rawcolor[2]);
+    const color = new THREE.Color();
+    color.setHSL(rawcolor[0],rawcolor[1],rawcolor[2]);
 
-const clouds = new THREE.Group()
+    const clouds = new THREE.Group()
 
-//const cloudcount = 20;
-for (let i = 0; i < cloudcount; i++) {
-    let bubble = createBubble((Math.random() * (90 - 10) + 10),color)
-    
-    bubble.receiveShadow = true;
-    bubble.castShadow = true;
+    for (let i = 0; i < cloudcount; i++) {
+        let bubble = createBubble((Math.random() * (90 - 10) + 10),color)
+        
+        bubble.receiveShadow = true;
+        bubble.castShadow = true;
 
-    const X = Math.random() * (40 - -40) + -40;
-    const Z = Math.random() * (40 - -40) + -40;
-    bubble.position.set(X,12,Z);
-    clouds.add( bubble )
-}
-scene.add( clouds )
+        const X = Math.random() * (40 - -40) + -40;
+        const Z = Math.random() * (40 - -40) + -40;
+        bubble.position.set(X,12,Z);
+        clouds.add( bubble )
+    }
+    scene.add( clouds )
 
-clouds.position.set(pos[0],pos[2],pos[2])
-return clouds
+    clouds.position.set(pos[0],pos[2],pos[2])
+    return clouds
 
 
 }
@@ -431,25 +295,6 @@ function createIce() {
 
 // Mountains and lakes biomes
 function MnL(pos) {
-    // const PLANE = createPlane(
-    //     step,
-    //     100,
-    //     1,
-    //     [0,4.5,2,-2,-9],
-    //     [
-    //         [0.125, 0.84, 0.67 ],
-    //         [0.125, 0.84, 0.67 ], //sand
-    //         [0.37, 0.83, 0.39], // green
-    //         [0.0, 0, 0.4 ], // grey
-    //         [0, 0, 1 ] // white
-    //     ]
-    //     );
-    // const WATER = createWater();
-    // const TREES = createTrees();
-    // //TREES = createTrees();
-    // const CLOUDS = createClouds();
-    // currentObjects = [PLANE,WATER,TREES,CLOUDS]
-
     currentObjects = [
         createPlane(
                 step,
@@ -467,7 +312,6 @@ function MnL(pos) {
                 ),
         createWater(
             [202 / 360, 1, 0.37],
-            //0x0077be,
             -3,
             pos
         ),
@@ -477,7 +321,6 @@ function MnL(pos) {
         ),
         createClouds(
             [0,0,1],
-            //0xFFFFFF,
             20,
             pos
         )
@@ -486,22 +329,6 @@ function MnL(pos) {
 
 // ice biome
 function iceBiome(pos) {
-    // const PLANE = createPlane(
-    //     step,
-    //     100,
-    //     1,
-    //     [0,4.5,2,-2,-9],
-    //     [
-    //         [0.0, 0, 0.4 ],
-    //         [0.0, 0, 0.4 ],
-    //         [0,0,1],
-    //         [0.0, 0, 0.4 ], //grey
-    //         [0, 0, 1 ] //white
-    //     ]
-    //     );
-    // const WATER = createWater();
-    // //const ICE = createIce();
-    //currentObjects = [PLANE, WATER]
     currentObjects = [
         createPlane(
                 step,
@@ -528,29 +355,10 @@ function iceBiome(pos) {
 
 // random world
 function randomWorld(pos) {
-    // const PLANE = createPlane(
-    //     step,
-    //     100,
-    //     10,
-    //     [0,4.5,2,-2,-9],
-    //     [
-    //         [0.125, 0.84, 0.67 ],
-    //         [0.125, 0.84, 0.67 ], //sand
-    //         [0.37, 0.83, 0.39], // green
-    //         [0.0, 0, 0.4 ], // grey
-    //         [0, 0, 1 ] // white
-    //     ]
-    //     );
-    // //const WATER = createWater();
-    // //const TREES = createTrees();
-    // const CLOUDS = createClouds();
-    // currentObjects = [PLANE,CLOUDS]
-
-    //let possibleAdditons = [createTrees,createClouds,createWater]
     const rndbig = () => { return Math.random() * (100 - -0) + -0 }
     const heights  = () => { return Math.random() * (20 - -20) + -20}
     const rnd  = () => { return Math.random() }
-
+    const rndhscols = () => {return [rnd(), rnd(), rnd() ]}
     currentObjects = [
         createPlane(
                 step,
@@ -560,11 +368,11 @@ function randomWorld(pos) {
                 // clean this up
                 [heights(),heights(),heights(),heights(),heights()],
                 [
-                    [rnd(), rnd(), rnd() ],
-                    [rnd(), rnd(), rnd() ], 
-                    [rnd(), rnd(), rnd() ], 
-                    [rnd(), rnd(), rnd() ], 
-                    [rnd(), rnd(), rnd() ] 
+                    rndhscols(),
+                    rndhscols(), 
+                    rndhscols(), 
+                    rndhscols(), 
+                    rndhscols() 
                 ],
                 pos
                 )
@@ -574,8 +382,7 @@ function randomWorld(pos) {
     
 
     if (Math.random() > 0.499) { currentObjects.push(createClouds(
-            [rnd(),rnd(),rnd()],
-            //0xFFFFFF,
+            rndhscols(),
             rndbig(),
             pos
         ))
@@ -586,13 +393,12 @@ function randomWorld(pos) {
         if (possibleTreeCoordinates.length > 0){
         currentObjects.push(
         createTrees(
-            [rnd(),rnd(),rnd()],
+            rndhscols(),
             pos
-            //20
     ))} }
 
     if (Math.random() > 0.499) { currentObjects.push(createWater(
-        [rnd(),rnd(),rnd()],
+        rndhscols(),
         Math.random() * (10 - -20) + -20,
         pos
     
@@ -615,7 +421,7 @@ const createMaterials = (dir) => {return [
     new THREE.MeshBasicMaterial({map: textureLoader.load(dir)}),
     new THREE.MeshBasicMaterial({map: textureLoader.load(side)})
 ];}
-test()
+
 const wh = 0.4
 
 const left = new THREE.Mesh(new THREE.BoxGeometry(wh,wh,wh),createMaterials(leftarrow));
@@ -634,8 +440,6 @@ let change = 0;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
 
-//const tween1 = TWEEN.Tween({x:0,y:0,z:0}).to({x:200,y:0,z:0}, 2000)
-
 // listen for mouse clicks
 document.addEventListener('click', onClick, false);
 
@@ -649,28 +453,20 @@ function onClick(event) {
 
   // check if the ray intersects any of the boxes
   var intersects = raycaster.intersectObjects([left, right,newbox]);
-    console.log(intersects)
   if (intersects.length > 0) {
 
     var selectedBox = intersects[0].object;
-    console.log(selectedBox)
 
     let coords;
     let tween;
     let coords1 = {x: 1,y: 1,z: 1}
-    let tween2 = new TWEEN.Tween(coords1) // Create a new tween that modifies 'coords'.
+    let tween2 = new TWEEN.Tween(coords1)
     .to({x: 1.2, y: 1.2, z: 1.2 }, 100).onUpdate(() => {
         selectedBox.scale.set(coords1.x,coords1.y,coords1.z)
-    
-
-    // }).to({x: 1, y: 1, z: 1 }, 1000).onUpdate(() => {
-    //     for ( let i = 0; i < intersects.length; i ++) { 
-    //         intersects[i].object.scale.set(coords.x,coords.y,coords.z)
-    //     }
         
     }).onComplete(function() {
         let coords2 = {x: 1.2,y:1.2,z:1.2}
-        let tween3 = new TWEEN.Tween(coords2) // Create a new tween that modifies 'coords'.
+        let tween3 = new TWEEN.Tween(coords2) 
         .to({x: 1, y: 1, z: 1 }, 100).onUpdate(() => {
             selectedBox.scale.set(coords2.x,coords2.y,coords2.z)
         })
@@ -690,13 +486,12 @@ function onClick(event) {
       if (change > 2) { change = 0 }
     }
     
-    coords = {x: 0, y: 0} // Start at (0, 0)
-    tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-        .to({x: 900, y: 0}, 1000) // Move to (300, 200) in 1 second.
-        .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+    coords = {x: 0, y: 0} 
+    tween = new TWEEN.Tween(coords) 
+        .to({x: 900, y: 0}, 1000) 
+        .easing(TWEEN.Easing.Quadratic.Out) 
         .onUpdate(() => {
         for ( let i = 0; i < currentObjects.length; i ++) { 
-            //console.log(currentObjects)
             currentObjects[i].position.set(coords.x,coords.y,0)
         }
 
@@ -708,7 +503,7 @@ function onClick(event) {
                 currentObjects[i].geometrydispose()
                 currentObjects[i].material.dispose()
                 } catch {
-                    //console.log("couldnt dispose of - ", currentObjects[i])
+                    console.log("couldnt dispose of - ", currentObjects[i])
                 }
                 if (currentObjects[i].count > 1000) {console.log("removing trees..-")}
             
@@ -720,24 +515,22 @@ function onClick(event) {
             if (change === 0) {MnL([-900,0,0])}
             else if (change === 1) { iceBiome([-900,0,0]) }
             else if (change === 2) { randomWorld([-900,0,0]) }
-            coords = {x: -900, y: 0} // Start at (0, 0)
-            tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-                .to({x: 0, y: 0}, 1000) // Move to (300, 200) in 1 second.
-                .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+            coords = {x: -900, y: 0} 
+            tween = new TWEEN.Tween(coords)
+                .to({x: 0, y: 0}, 1000) 
+                .easing(TWEEN.Easing.Quadratic.Out) 
                 .onUpdate(() => {
                 for ( let i = 0; i < currentObjects.length; i ++) { 
-                    //console.log(currentObjects)
                     currentObjects[i].position.set(coords.x,coords.y,0)
                 }
 
                 }).onComplete(function() {
 
                 })
-                .start() // Start the tween immediately.
-            console.log(change)
-            console.log(scene)
+                .start() 
+
         })
-        .start() // Start the tween immediately.
+        .start()
   }
 }
 
@@ -768,17 +561,6 @@ function animate() {
 
     TWEEN.update()
 
-    // spotLight.angle = options.angle;
-    // spotLight.penumbra = options.penumbra;
-    // spotLight.intensity = options.intensity;
-    // directionallight.angle = options.angle;
-    // directionallight.penumbra = options.penumbra;
-    // directionallight.intensity = options.intensity;
-
-    light.position.x = options.cameraX
-    light.position.y = options.cameraY
-    light.position.z = options.cameraZ
-    light.intensity = options.cameraIntensity;
     renderer.render(scene,camera);
 }
 renderer.setAnimationLoop(animate);
