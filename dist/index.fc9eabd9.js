@@ -559,11 +559,12 @@ function hmrAccept(bundle, id) {
 },{}],"NPDou":[function(require,module,exports) {
 //import * as THREE from 'three';
 // import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
-var _orbitControlsJs = require("../../../node_modules/three/examples/jsm/controls/OrbitControls.js");
+// import { OrbitControls } from '../../../node_modules/three/examples/jsm/controls/OrbitControls.mjs';
+var _orbitControlsJs = require("/node_modules/three/examples/jsm/controls/OrbitControls.js");
 // import * as TWEEN from '@tweenjs/tween.js'
 // import SimplexNoise from 'simplex-noise';
 // import { createNoise2D } from 'simplex-noise';
-var _simplexNoiseJs = require("../../../node_modules/simplex-noise/dist/esm/simplex-noise.js");
+var _simplexNoiseJs = require("/node_modules/simplex-noise/dist/esm/simplex-noise.js");
 // import * as dat from 'dat.gui';
 //var createNoise2D = SimplexNoise.createNoise2D
 // console.log("test")
@@ -1274,7 +1275,7 @@ window.addEventListener("resize", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-},{"../../../node_modules/three/examples/jsm/controls/OrbitControls.js":"7mqRv","../../../node_modules/simplex-noise/dist/esm/simplex-noise.js":"FTQ4k"}],"7mqRv":[function(require,module,exports) {
+},{"/node_modules/three/examples/jsm/controls/OrbitControls.js":"7mqRv","/node_modules/simplex-noise/dist/esm/simplex-noise.js":"FTQ4k"}],"7mqRv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "OrbitControls", ()=>OrbitControls);
